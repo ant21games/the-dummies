@@ -4,24 +4,24 @@ import (
 	"context"
 	"github.com/makeitplay/arena"
 	"github.com/makeitplay/arena/orders"
-	"github.com/sirupsen/logrus"
 )
 
 type TurnContextFactory interface {
-	CreateTurnContext(msg GameMessage) TurnContext
+	CreateTurnContext(ctx context.Context, msg GameMessage) TurnContext
 }
 
 type Broker interface {
 	Dial(configuration *Configuration) (context.Context, error)
 	Stop() error
 	SendOrders(message string, ordersList ...orders.Order) error
+	SetTurnContextFactory(TurnContextFactory)
 	OnMessage(func(msg GameMessage))
-	OnAnnouncement(func(turnTx TurnContext))
+	OnListeningState(func(turnTx TurnContext))
 }
 
 type TurnContext interface {
 	context.Context
-	Logger() *logrus.Entry
+	Logger() Logger
 	Reader() GameReader
 	GameMsg() *GameMessage
 }
@@ -34,4 +34,14 @@ type GameReader interface {
 	GetOpponentTeam() Team
 	ForEachPlayByTeam(place arena.TeamPlace, callback func(index int, player *Player))
 	FindPlayer(place arena.TeamPlace, playerNumber arena.PlayerNumber) (*Player, error)
+	IHoldTheBall() bool
+	OpponentGoal() arena.Goal
+	DefenseGoal() arena.Goal
+	IsGoalkeeper() bool
+}
+
+type Logger interface {
+	Infof(format string, args ...interface{})
+	Printf(format string, args ...interface{})
+	Warnf(format string, args ...interface{})
 }
