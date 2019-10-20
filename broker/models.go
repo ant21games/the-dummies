@@ -41,7 +41,7 @@ type Team struct {
 
 type Player struct {
 	physics.Element
-	Id        string             `json:"id"`
-	Number    arena.PlayerNumber `json:"number"`
-	TeamPlace arena.TeamPlace    `json:"team_place"`
+	Id        string          `json:"id"`
+	Number    string          `json:"number"`
+	TeamPlace arena.TeamPlace `json:"team_place"`
 }

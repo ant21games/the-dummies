@@ -22,22 +22,25 @@ type Broker interface {
 type TurnContext interface {
 	context.Context
 	Logger() Logger
-	Reader() GameReader
+	Reader() GameStateReader
 	GameMsg() *GameMessage
 }
 
-type GameReader interface {
+// A GameStateReader is a helper to optimise methods that are heavily used by bots.
+// The GameStateReader usage is optional. All data provided by this interface may also be directly retrieved
+// from the GameMessage
+type GameStateReader interface {
 	Ball() Ball
 	Turn() int
 	Me() *Player
 	GetMyTeam() Team
 	GetOpponentTeam() Team
-	ForEachPlayByTeam(place arena.TeamPlace, callback func(index int, player *Player))
-	FindPlayer(place arena.TeamPlace, playerNumber arena.PlayerNumber) (*Player, error)
+	ForEachPlayer(place arena.TeamPlace, callback func(index int, player *Player))
+	FindPlayer(place arena.TeamPlace, playerNumber string) (*Player, error)
 	IHoldTheBall() bool
 	OpponentGoal() arena.Goal
 	DefenseGoal() arena.Goal
-	IsGoalkeeper() bool
+	AmIGoalkeeper() bool
 }
 
 type Logger interface {
