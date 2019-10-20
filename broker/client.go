@@ -6,9 +6,11 @@ import (
 	"github.com/makeitplay/arena/orders"
 )
 
-type TurnContextFactory interface {
-	CreateTurnContext(ctx context.Context, msg GameMessage) TurnContext
-}
+type TurnContextFactory func(msg GameMessage, place arena.TeamPlace, number string) (TurnContext, context.CancelFunc)
+
+//type TurnContextFactory interface {
+//	CreateTurnContext(msg GameMessage, place arena.TeamPlace, number string) (TurnContext, context.CancelFunc)
+//}
 
 type Broker interface {
 	Dial(configuration *Configuration) (context.Context, error)
@@ -16,7 +18,7 @@ type Broker interface {
 	SendOrders(message string, ordersList ...orders.Order) error
 	SetTurnContextFactory(TurnContextFactory)
 	OnMessage(func(msg GameMessage))
-	OnListeningState(func(turnTx TurnContext))
+	OnListeningState(func(turnTx TurnContext, breaker context.CancelFunc))
 }
 
 type TurnContext interface {
