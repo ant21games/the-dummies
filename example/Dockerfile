@@ -1,15 +1,12 @@
-FROM golang:1.10 AS build
+FROM golang:1.12 AS build
 
-RUN go get github.com/golang/dep/cmd/dep
+COPY .  /my-bot
 
-COPY .  /go/src/github.com/[username]/[team-name]
+WORKDIR /my-bot
 
-WORKDIR /go/src/github.com/[username]/[team-name]
-
-RUN dep ensure
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /bin/team-name
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /bin/my-bot main.go
 
 FROM scratch
-COPY --from=build /bin/team-name /bin/team-name
-ENTRYPOINT ["/bin/team-name"]
+COPY --from=build /bin/my-bot /bin/my-bot
+ENTRYPOINT ["/bin/my-bot"]
 CMD []

@@ -26,7 +26,7 @@ your strategy (see the project [The Dummies](https://github.com/lugobots/the-dum
 
 ### Installation
 
-    go get github.com/lugobots/client-player-go
+    git clone https://github.com/lugobots/client-player-go.git
 
 ### Kick start
 
@@ -38,9 +38,15 @@ your strategy (see the project [The Dummies](https://github.com/lugobots/the-dum
     ```
 0. Run the game server using the command 
     ```bash
-    docker run -p 8080:8080  lugobots/server:1.0 play
+    docker run -p 8080:8080  lugobots/server:v1.1 play --dev-mode
     ```
-0. Now you will need to start your team process. Each team must have 11 process (one for each player).
+    **or**
+    
+    Start the Docker compose file present in this project. The Docker compose will also start the **away** team.
+   ```bash
+   docker-compose up
+   ```
+0. Now you will need to start your team processes. Each team must have 11 process (one for each player).
     
     **Option A**: You may start your team players manually executing the command `./myAwesomeBot -team=home -number=[1-11]`
     eleven times. 
@@ -49,21 +55,13 @@ your strategy (see the project [The Dummies](https://github.com/lugobots/the-dum
     
     **Option B**: You can use the script in [the example directory](./example) to do this automatically for you:
     `./play.sh home`
-0. And finally you may do the same for the other team. 
+0. And, **if your have not started the away team**, you may do the same for the other team. 
     
-    **Option A**: You play against your own team repeating the last step, but in the `away` side: `./play.sh away`
+    You play against your own team repeating the last step, but in the `away` side: 
+    ```
+    ./play.sh away
+   ```
     
-    **or**
-        
-    **Option B**: You may play against [**The Dummies** team](https://github.com/lugobots/the-dummies-go) executing the script `start-team-container.sh`
-    available in [the example directory](./example):     
-    
-    `./start-team-container.sh lugobots/the-dummies-go away`
-     
-    **or**
-    
-    **Option C**: You may play against another team:
-    `./start-team-container.sh [container image name] away` 
 
 ### Next steps
 
