@@ -1,9 +1,9 @@
-# MakeItPlay - Football Go Player Client
+# Lugo - Go Player Client
 
 [![GoDoc](https://godoc.org/github.com/lugobots/client-player-go?status.svg)](https://godoc.org/github.com/lugobots/client-player-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/lugobots/client-player-go)](https://goreportcard.com/report/github.com/lugobots/client-player-go)
 
-Go Player Client is a [Go](http://golang.org/) implementation of a client player for [MakeItPlay football](http://www.makeitplay.ai/football) game server. 
+Go Player Client is a [Go](http://golang.org/) implementation of a client player for [Lugo](https://lugobots.dev/) game. 
 
 It **is not a bot** that plays the game, it is only the client for the game server. 
 
@@ -38,7 +38,7 @@ your strategy (see the project [The Dummies](https://github.com/lugobots/the-dum
     ```
 0. Run the game server using the command 
     ```bash
-    docker run -p 8080:8080  makeitplay/football:1.0.0-alpha
+    docker run -p 8080:8080  lugobots/server:1.0 play
     ```
 0. Now you will need to start your team process. Each team must have 11 process (one for each player).
     
@@ -58,7 +58,7 @@ your strategy (see the project [The Dummies](https://github.com/lugobots/the-dum
     **Option B**: You may play against [**The Dummies** team](https://github.com/lugobots/the-dummies-go) executing the script `start-team-container.sh`
     available in [the example directory](./example):     
     
-    `./start-team-container.sh makeitplay/the-dummies-go away`
+    `./start-team-container.sh lugobots/the-dummies-go away`
      
     **or**
     
