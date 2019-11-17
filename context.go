@@ -3,7 +3,7 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/makeitplay/arena"
+	"github.com/lugobots/arena"
 	"github.com/sirupsen/logrus"
 	"time"
 )

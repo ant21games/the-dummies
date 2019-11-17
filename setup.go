@@ -3,9 +3,9 @@ package client
 import (
 	"context"
 	"fmt"
-	"github.com/makeitplay/arena"
-	"github.com/makeitplay/arena/physics"
-	"github.com/makeitplay/arena/talk"
+	"github.com/lugobots/arena"
+	"github.com/lugobots/arena/physics"
+	"github.com/lugobots/arena/talk"
 	"math/rand"
 	"net/url"
 	"time"

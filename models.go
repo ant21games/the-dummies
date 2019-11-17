@@ -1,9 +1,9 @@
 package client
 
 import (
-	"github.com/makeitplay/arena"
-	"github.com/makeitplay/arena/orders"
-	"github.com/makeitplay/arena/physics"
+	"github.com/lugobots/arena"
+	"github.com/lugobots/arena/orders"
+	"github.com/lugobots/arena/physics"
 )
 
 // Ball is the ball :-)

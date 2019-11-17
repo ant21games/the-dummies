@@ -2,10 +2,10 @@ package client
 
 import (
 	"fmt"
-	"github.com/makeitplay/arena"
-	"github.com/makeitplay/arena/orders"
-	"github.com/makeitplay/arena/physics"
-	"github.com/makeitplay/arena/units"
+	"github.com/lugobots/arena"
+	"github.com/lugobots/arena/orders"
+	"github.com/lugobots/arena/physics"
+	"github.com/lugobots/arena/units"
 )
 
 // Player acts as a brainless player in the game. This struct implements many methods that does not affect the player

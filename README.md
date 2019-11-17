@@ -1,7 +1,7 @@
 # MakeItPlay - Football Go Player Client
 
-[![GoDoc](https://godoc.org/github.com/makeitplay/client-player-go?status.svg)](https://godoc.org/github.com/makeitplay/client-player-go)
-[![Go Report Card](https://goreportcard.com/badge/github.com/makeitplay/client-player-go)](https://goreportcard.com/report/github.com/makeitplay/client-player-go)
+[![GoDoc](https://godoc.org/github.com/lugobots/client-player-go?status.svg)](https://godoc.org/github.com/lugobots/client-player-go)
+[![Go Report Card](https://goreportcard.com/badge/github.com/lugobots/client-player-go)](https://goreportcard.com/report/github.com/lugobots/client-player-go)
 
 Go Player Client is a [Go](http://golang.org/) implementation of a client player for [MakeItPlay football](http://www.makeitplay.ai/football) game server. 
 
@@ -12,11 +12,11 @@ intelligence/behaviour/decisions. It is meant to reduce the developer concerns o
 focus in the player intelligence.
 
 Using this client, you just need to implement the Artificial Intelligence of your player and some other few methods to support
-your strategy (see the project [The Dummies](https://github.com/makeitplay/the-dummies-go) as an example). 
+your strategy (see the project [The Dummies](https://github.com/lugobots/the-dummies-go) as an example). 
  
 ### Documentation
 
-* [API Reference](http://godoc.org/github.com/makeitplay/client-player-go)
+* [API Reference](http://godoc.org/github.com/lugobots/client-player-go)
 
 ### Requirements
 
@@ -26,7 +26,7 @@ your strategy (see the project [The Dummies](https://github.com/makeitplay/the-d
 
 ### Installation
 
-    go get github.com/makeitplay/client-player-go
+    go get github.com/lugobots/client-player-go
 
 ### Kick start
 
@@ -55,7 +55,7 @@ your strategy (see the project [The Dummies](https://github.com/makeitplay/the-d
     
     **or**
         
-    **Option B**: You may play against [**The Dummies** team](https://github.com/makeitplay/the-dummies-go) executing the script `start-team-container.sh`
+    **Option B**: You may play against [**The Dummies** team](https://github.com/lugobots/the-dummies-go) executing the script `start-team-container.sh`
     available in [the example directory](./example):     
     
     `./start-team-container.sh makeitplay/the-dummies-go away`
